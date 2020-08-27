@@ -124,18 +124,21 @@ print('{} metros sao {} milimetros'.format(num, num*1000))
 #OBS.: eu trapaceei nessa questao porque fique com preguica
 num = float(input('Digite um numero: '))
 print('A tabuada do numero {} e: '.format(num))
-for i in range(10):
+for i in range(11):
     print('{} x {} = {}'.format(num, i, num*i))
 '''
 
 '''
-#DESAFIO 10 AULA 7
+#DESAFIO 10 AULA 7: faca um programa que leia quantos reais uma pessoa tem
+#e diga quantos dolares ela pode comprar
 reais = float(input('Quantos reais voce possui? '))
-print('Com {} reais voce consegue {} dolares, considerando que 1 dolar = 3.27 reais.'.format(reais, reais//3.27))
+print('Com {} reais voce consegue {:.2f} dolares, considerando que 1 dolar = 3.27 reais.'.format(reais, reais/3.27))
 '''
 
 '''
-#DESAFIO 11 AULA 7
+#DESAFIO 11 AULA 7: faca um programa que leia a largura e a altura de uma
+#parede e diga a area da parede e quantos litros de tinta e necessario 
+#para pinta-la, sabendo que cada litro de tinta pinta uma area de 2 metros quadrados
 largura = float(input('Escreva a largura da parede: '))
 altura = float(input('Escreva a altura da parede: '))
 area = largura*altura
@@ -143,15 +146,117 @@ print('Uma parede de {} metros quadrados precisa de {} litros de tinta para ser 
 '''
 
 '''
-#DESAFIO 12 AULA 7
+#DESAFIO 12 AULA 7: faca um programa que leia o preco de um produto e mostre
+#seu novo preco com 5% de desconto
 produto = float(input('Digite o preco do produto: '))
 desconto = (produto*5)/100
 print('O preco original do produto e {} reais, com 5 por cento de desconto ele sai a {} reais.'.format(produto, produto - desconto))
 '''
 
 '''
-#DESAFIO 13 AULA 7
+#DESAFIO 13 AULA 7: faca um programa que leia o salario de um funcionario
+#e mostre seu novo salario com 15% de aumento
 salario = float(input('Qual valor do salario do funcionario? '))
 aumento = (salario*15)/100
 print('O funcionario recebia {} e agora passa a receber {} depois do aumento de 15 por cento.'.format(salario, salario + aumento))
 '''
+
+'''
+#DESAFIO 14: faca um programa que converta uma temperatura digitada em graus
+#celsius e converta para graus fahrenheit
+c = float(input("Digite uma temperatura em graus Celsius: "))
+f = (c * 9 / 5) + 32
+print("{} graus Celsius correspondem a {} graus Fahrenheit.".format(c,f))
+'''
+
+'''
+#DESAFIO 15: Escreva um programa que pergunte a quantidade de Km 
+#percorridos por um carro alugado e a quantidade de dias pelos 
+#quais ele foi alugado. Calcule o preço a pagar, sabendo que o carro 
+#custa R$60 por dia e R$0,15 por Km rodado.
+km = float(input("Quantos kilometros o carro percorreu? "))
+dias = int(input("O carro foi alugado por quantos dias? "))
+valor = km*0.15 + dias*60
+print("O preco a se pagar pelo aluguel do carro e de {} .".format(valor))
+'''
+
+# Para importa bibliotecas basta usar o comando: import alguma_bilbioteca
+# Caso eu queira apenas uma funcionalidade especifica de uma biblioteca, basta usar o
+# comando: from alguma_biblioteca import funcionalidade
+# Ex.4: import math
+#      from math import sqrt
+#      from math import sqrt, ceil
+
+'''
+# Ex.5:
+import math
+#from math import sqrt, ceil #neste caso nao se usa o math., usa-se apenas sqrt(), ceil()...
+num = int(input('Digite um numero: '))
+raiz = math.sqrt(num)
+#ceil e arredondar para cima, floor e arrendondar para baixo
+print('A raiz de {} e igual a {}'.format(num, math.ceil(raiz)))
+'''
+
+# E possivel ver a lista de packages do Python na aba PyPI do site oficial do Python (https://pypi.org/)
+
+'''
+#DESAFIO 16 AULA 8: faca um programa que leia um numero real qualquer pelo teclado
+#e mostre na tela a sua porcao inteira
+from math import trunc
+num = float(input('Digite um numero real: '))
+print('O numero {} tem a parte inteira {}.'.format(num, trunc(num)))
+'''
+
+'''
+#DESAFIO 17 AULA 8: faca um programa que leia o comprimento do cateto oposto e do cateto
+#adjacente de um triangulo retangulo, calcule e mostre o comprimento da hipotenusa
+from math import sqrt, pow
+co = float(input('Digite o comprimento do cateto oposto: '))
+ca = float(input('Digite o comprimento do cateto adjacente: '))
+h = sqrt(pow(co, 2) + pow(ca, 2))
+print('A hipotenusa tem {:.2f} de comprimeto.'.format(h))
+# existe o metodo math.hypot(valor1, valor2) que calcula o valor da hipotenusa direto!
+'''
+
+'''
+#DESAFIO 18 AULA 8: faca um programa que leia um angulo qualquer e mostre na tela o valor
+#do seno, cosseno e tangente desse angulo
+from math import sin, cos, tan, radians
+ang = float(input('Digite um angulo qualquer: '))
+rad = radians(ang)
+print('Cosseno de {}: {:.3f}'.format(ang, cos(rad)))
+print('Seno de {}: {:.3f}'.format(ang, sin(rad)))
+print('Tangente de {}: {:.3f}'.format(ang, tan(rad)))
+'''
+
+'''
+#DESAFIO 19 AULA 8: um professor quer sortear um dos seus quatro alunos para apagar o quadro
+#Faca um programa que ajude ele, lendo o nome deles e escrevendo o nome escolhido
+import random
+a1 = input('Digite o nome do primeiro aluno: ')
+a2 = input('Digite o nome do segundo aluno: ')
+a3 = input('Digite o nome do terceiro aluno: ')
+a4 = input('Digite o nome do quarto aluno: ')
+lista = [a1, a2, a3, a4]
+student = random.randint(1, 4)
+print('O professor sorteou o numero {}, correspondente ao aluno'.format(student), lista[student-1])
+'''
+
+'''
+#DESAFIO 20 AULA 8: o mesmo professor do desafio passado quer sortear a ordem de apresentacao
+#de trabalho dos alunos. Faca um programa que leia o nome dos quatro alunos e mostre a ordem sorteada
+import random
+a1 = input('Digite o nome do primeiro aluno: ')
+a2 = input('Digite o nome do segundo aluno: ')
+a3 = input('Digite o nome do terceiro aluno: ')
+a4 = input('Digite o nome do quarto aluno: ')
+lista = [a1, a2, a3, a4]
+random.shuffle(lista)
+print('A ordem sorteada pelo professor e a seguinte: ', lista)
+'''
+
+
+#DESAFIO 21 AULA 8: faca um programa que abra e reproduza o audio de um arquivo MP3
+#import os
+#os.startfile(r'C:\Users\testeFelipe\Desktop\Curso em video Python 3\Mundo 1\A_mp3_audio.mp3')
+
