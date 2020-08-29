@@ -259,4 +259,119 @@ print('A ordem sorteada pelo professor e a seguinte: ', lista)
 #DESAFIO 21 AULA 8: faca um programa que abra e reproduza o audio de um arquivo MP3
 #import os
 #os.startfile(r'C:\Users\testeFelipe\Desktop\Curso em video Python 3\Mundo 1\A_mp3_audio.mp3')
+#Outra maneira de resolver esse exercicio e usando a biblioteca PyGame
+
+
+# CADEIAS DE CARACTER
+# Vamos considerar uma variavel do tipo string chamada frase. Existem varias funcoes que para
+# manipular e analisar uma cadeia de caracter.
+# Analise de strings: len(frase): retorna o tamanho da string
+#                     frase.count(): conta quantas vezes ocorre uma determinada instancia
+#                       ex.1: frase.count('o')
+#                       ex.2: frase.count('o', 0, 13) #considerando apenas o intervalo de 0 a 12
+#                     frase.find(): retorna a posicao onde uma determinada instancia acontece. E retornado o valor -1 caso a string nao possua a instancia mencionada
+#                       ex.3: frase = 'Video'
+#                             frase.find('deo') -> neste caso ele ira retornar 2
+#                     'instancia' in frase: retorna TRUE se instancia existir dentro de frase, caso contrario retorna False
+# Transformacao: frase.replace('a', 'b'): em frase, a instancia 'b' sera substituida por 'a'
+#                frase.upper(): bota a string em caixa alta
+#                frase.lower(): bota a string em minusculo
+#                frase.capitalize(): apenas o primeiro caracter e colocado em maiusculo
+#                frase.title(): todas as palavras dentro da string serao capitalizadas
+#                frase.strip(): remove todos os espacos inuteis no inicio e ao final da string
+#                  frase.rstrip(): remove os espacos apenas do lado direito da string   
+#                  frase.lstrip(): remove os espacos apenas do lado esquerdo da string
+# Divisao: frase.split(): quebra uma string onde houver espacos, as palavras serao colocadas dentro de uma lista
+#          '-'.join(frase): faz uma juncao dos elementos de uma lista de strings em uma unica string separando-os por '-'
+
+'''
+#DESAFIO 22 AULA 9: crie um programa que leia o nome completo de uma pessoa e mostre:
+#a)o nome com todas as letras maiusculas
+#d)o nome com todas as letras minusculas
+#c)quantas letras ao todo, sem considerar os espacos
+#d)quantas letras tem o primeiro nome
+nome = str(input('Digite seu nome completo: '))
+print(nome.upper())
+print(nome.lower())
+print('O nome {} possui {} letras'.format(nome, len(nome) - nome.count(' ')))
+a = nome.split()
+print('O primeiro nome da pessoa e {} e possui {} letras'.format(a[0], len(a[0])))
+'''
+
+'''
+#DESAFIO 23 AULA 9: crie um programa que leia um numero de 0 a 9999 e mostre na tela cada um dos
+#digitos separados
+num = str(input('Digite um numero entre 0 a 9999: '))
+t = 4 - len(num)
+num = ' '*t + num 
+print('Unidade: {}\nDezena: {}\nCentena: {}\nMilhar: {}'.format(num[3], num[2], num[1], num[0]))
+'''
+
+'''
+#DESAFIO 24 AULA 9: crie um programa que leia o nome de uma cidade e diga se ila comeca ou nao
+#com o nome 'Santo'
+cidade = str(input('Digite o nome de uma cidade: '))
+if(cidade.upper().find('SANTO') == 0):
+    print('Sua cidade comeca com o nome Santo.')
+else:
+    print('Sua cidade nao comeca com o nome Santo.')
+'''
+
+'''
+#DESAFIO 25 AULA 9: Crie um programa que leia o nome de uma pessoa e diga se ela tem
+#'Silva' no nome
+nome = str(input('Digite seu nome: '))
+if('SILVA' in nome.upper()):
+    print('Voce possui Silva no nome.')
+else:
+    print('Voce nao possui Silva no nome.')
+'''
+
+'''
+#DESAFIO 26 AULA 9: crie um programa que leia uma frase pelo teclado e mostre
+#a)quantas vezes aparece a letra 'a'
+#b)em que posicao ela aparece a primeira vez
+#c)em que posicao ela aparece a ultima vez
+frase = str(input('Digite uma frase: '))
+print('A letra "a" aparece {} vezes. '.format(frase.upper().count('A')))
+print('Primeira ocorrencia: {}.'.format(frase.upper().find('A')))
+print('Ultima ocorrencia: {}.'.format())
+'''
+
+'''
+#DESAFIO 27 AULA 9: faca um programa que leia o nome completo de uma pessoa, mostrando em seguida
+#o primeiro e o ultimo nome separadamente
+nome = str(input('Digite seu nome: '))
+n = nome.split()
+a = len(n)
+print('Primeiro = {}\nUltimo = {}'.format(n[0], n[a - 1]))
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
