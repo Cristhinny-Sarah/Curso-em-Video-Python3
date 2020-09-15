@@ -308,7 +308,7 @@ print('Unidade: {}\nDezena: {}\nCentena: {}\nMilhar: {}'.format(num[3], num[2], 
 '''
 
 '''
-#DESAFIO 24 AULA 9: crie um programa que leia o nome de uma cidade e diga se ila comeca ou nao
+#DESAFIO 24 AULA 9: crie um programa que leia o nome de uma cidade e diga se ela comeca ou nao
 #com o nome 'Santo'
 cidade = str(input('Digite o nome de uma cidade: '))
 if(cidade.upper().find('SANTO') == 0):
@@ -332,10 +332,10 @@ else:
 #a)quantas vezes aparece a letra 'a'
 #b)em que posicao ela aparece a primeira vez
 #c)em que posicao ela aparece a ultima vez
-frase = str(input('Digite uma frase: '))
+frase = str(input('Digite uma frase: ')).strip()
 print('A letra "a" aparece {} vezes. '.format(frase.upper().count('A')))
 print('Primeira ocorrencia: {}.'.format(frase.upper().find('A')))
-print('Ultima ocorrencia: {}.'.format())
+print('Ultima ocorrencia: {}.'.format(frase.upper().rfind('A')))
 '''
 
 '''
@@ -347,31 +347,173 @@ a = len(n)
 print('Primeiro = {}\nUltimo = {}'.format(n[0], n[a - 1]))
 '''
 
+#Condicoes
+#   if condition:
+#       code
+#   else:
+#       code
+#exemplo de condicao simplificada: tempo = int(input())
+#                                  print('carro novo' if tempo <=3 else 'carro velho')
+#                                  print('--Fim--')
 
+'''
+#DESAFIO 28 AULA 10: escreva um programa que faca o computador sortear um numero inteiro entre
+#0 e 5 e peca para o usuario tentar adivinhar o numero e mostre na tela se ele acertou ou nao
+from random import randint
+numero = randint(0, 5)
+num_usuario = int(input('Digite um numero entre 0 e 5: '))
+if numero == num_usuario:
+    print('Voce acertou!')
+else:
+    print('O numero sorteado foi {}'.format(numero))
+'''
 
+'''
+#DESAFIO 29 AULA 10: escreva um programa que leia a velocidade de um carro. Se ele ultrapassar
+#80Km/h mostre uma mensagem dizendo que ele foi multado. A multa custa 7 reais por cada
+#km/h a cima do limite
+velocidade = float(input('Digite a velocidade do carro em Km/h: '))
+if velocidade > 80:
+    print('Voce foi multado em {} reais por ultrapassar o limite de velocidade igual a 80Km/h'.format(7*(velocidade - 80)))
+else:
+    print('Tudo certo, boa viagem!')
+'''
 
+'''
+#DESAFIO 30 AULA 10: crie um programa que leia um numero e diga se ele e par ou impar
+numero = int(input('Digite um numero inteiro qualquer: '))
+if numero % 2 == 0:
+    print('O numero {} e par!'.format(numero))
+else:
+    print('O numero {} e impar!'.format(numero))
+'''
 
+'''
+#DESAFIO 31 AULA 10: desenvolva um programa que pergunte a distancia de uma viagem em Km
+#e calcule o preco das passagem cabrando 0.50 centavos por Km para viagens de ate 200Km
+#e 0.45 centavos para viagens mais longas
+distancia = float(input('Qual a distancia da sua viagem? '))
+if distancia <= 200:
+    print('O valor da sua passagem ficou em R${}'.format(distancia*0.5))
+else:
+    print('O valor da sua passagem ficou em R${}'.format(distancia*0.45))
+'''
 
+'''
+#DESAFIO 32 AULA 10: faca um programa que leia um ano qualquer e mostre se ele e bissexto
+ano = int(input('Digite um ano qualquer: '))
+if (ano % 4 == 0) and (ano % 100 != 0) :
+    print('O ano {} e bissexto!'.format(ano))
+else:
+    if ano % 400 == 0:
+        print('O ano {} e bissexto!'.format(ano))
+    else:
+        print('O ano {} nao e bissexto!'.format(ano))
+'''
 
+#Como pegar o ano atual da maquina :D
+#from datetime import date
+#ano = date.today().year
 
+'''
+#DESAFIO 33 AULA 10: faca um programa que leia tres numeros e mostre qual o maior e qual o menor
+num1 = float(input('Digite o primeiro numero: '))
+num2 = float(input('Digite o segundo numero: '))
+num3 = float(input('Digite o terceiro numero: '))
 
+if num1 > num2:
+    maior = num1
+else:
+    maior = num2
+if maior > num3:
+    print('O maior numero e {}'.format(maior))
+else:
+    print('O maior numero e {}'.format(num3))
 
+if num1 < num2:
+    menor = num1
+else:
+    menor = num2
+if menor < num3:
+    print('O menor numero e {}'.format(menor))
+else:
+    print('O menor numero e {}'.format(num3))
+'''
 
+'''
+#DESAFIO 34 AULA 10: escreva um programa que pergunte o salario de um funcionario e calcule
+#seu aumento, para salarios superiores a 1250.00 reais calcule um aumento de 10%, para inferiores
+#ou iguais calcule um aumento de 15%
+salario = float(input('Digite o valor do salario do funcionario: R$'))
+if salario > 1250:
+    aumento = salario * 0.1
+    print('Seu aumento e de R${:.2f} e voce passara a receber R${:.2f}'.format(aumento, salario + aumento))
+else:
+    aumento = salario * 0.15
+    print('Seu aumento e de R${:.2f} e voce passara a receber R${:.2f}'.format(aumento, salario + aumento))
+'''
 
+'''
+#DESAFIO 35 AULA 10: desenvolva um programa que leia o comprimento de 3 retas e diga ao usuario
+#se elas podem ou nao formar um triangulo
+import math
+r1 = float(input('Digite o valor da primeira reta: '))
+r2 = float(input('Digite o valor da segunda reta: '))
+r3 = float(input('Digite o valor da terceira reta: '))
 
+if (r1 < r2 + r3) and (r1 > math.fabs(r2 - r3)) :
+    if (r2 < r1 + r3) and (r2 > math.fabs(r1 - r3)) :
+        if (r3 < r1 + r2) and (r3 > math.fabs(r2 - r1)) :
+            print('As retas {:.1f}, {:.1f} e {:.1f} formam um tringulo!'.format(r1, r2, r3))
+        else:
+            print('As retas {:.1f}, {:.1f} e {:.1f} nao formam um tringulo!'.format(r1, r2, r3))
+    else:
+            print('As retas {:.1f}, {:.1f} e {:.1f} nao formam um tringulo!'.format(r1, r2, r3))
+else:
+            print('As retas {:.1f}, {:.1f} e {:.1f} nao formam um tringulo!'.format(r1, r2, r3))
+'''
 
+# Cores no Terminal em Python!
+# Para adicionar cores no padrao ANSI usando escape sequence basta utilizar a seguinte expressao
+# \033[STYLE;TEXT;BACKGROUNDm
+# Ex.: \033[0;33;44m
 
+# Estilo: 0 --> sem estilo
+#         1 --> negrito
+#         4 --> sublinhado
+#         7 --> negativo
 
+# Texto: 30 --> branco
+#        31 --> vermelho
+#        32 --> verde
+#        33 --> amarelo
+#        34 --> azul
+#        35 --> roxo
+#        36 --> ciano
+#        37 --> cinza
 
+# Backg: 40 --> branco
+#        41 --> vermelho
+#        42 --> verde
+#        43 --> amarelo
+#        44 --> azul
+#        45 --> roxo
+#        46 --> ciano
+#        47 --> cinza
 
+# Obs.: para retornar pro padrao do terminal basta fazer \033[m
 
+'''
+#Ex.:
+print('\033[7mOla mundo\033[m')
 
+    #uso do .format para facilitar o uso de cores
+nome = 'Gustavo'
+print('Ola {}{}{} !!'.format('\033[36m', nome, '\033[m'))
 
+    #criacao de uma lista de cores
+cores = {'limpa':'\033[m', 'azul':'\033[34m'} 
+print('Ola {}{}{} !!'.format(cores['azul'], nome, cores['limpa']))
+'''
 
-
-
-
-
-
-
-
+#TESTE MUNDO 1 PYTHON
